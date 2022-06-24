@@ -4,14 +4,24 @@ import PopularPosts from './PopularPosts'
 import Trending from './Trending'
 import SidePanel from './SidePanel'
 
-function Body() {
+function Body(props) {
+
+  const redditFeedItems = props.popularPostsData.map(postData => {
+    return (
+      <RedditFeed 
+        title={postData.title}
+        score={postData.score}
+        />
+    )
+  })
+    
   return (
     <div>
         <h2>Body</h2>
         <div>
             <Trending />
             <PopularPosts />
-            <RedditFeed />   
+            {redditFeedItems}
         </div>
         <SidePanel />
     </div>
