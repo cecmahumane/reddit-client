@@ -1,6 +1,7 @@
 import React from 'react'
 import ArrowUp from '../images/Arrow-up.png'
 import ArrowDown from '../images/Arrow-down.png'
+import Chat from '../images/Chat.png'
 
 function RedditFeed(props) {
 
@@ -13,10 +14,12 @@ function RedditFeed(props) {
           <img src={ArrowDown} alt='' className='arrowdown'/>
         </div>
         <div className='feed-item-content'>
-          <p>{props.subredditNamePrefix}</p>
-          <p>Posted by u/{props.author}</p>
+          <p>{props.subredditNamePrefix} * Posted by u/{props.author}</p>
           <h3>{props.title}</h3>
-          <p>{props.numComments} Comments</p>
+          <div className='feed-item-content-comments'>
+            <img src={Chat}/>
+            <p>{props.numComments} Comments</p>
+          </div>
         </div>
     </div>
   )
