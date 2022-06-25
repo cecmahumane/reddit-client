@@ -1,0 +1,10 @@
+services:
+  node-app:
+    hostname: node-app # replace this
+    build: . # if multiple containers don't bother
+    networks:
+      - default
+    tty: true
+    stdin_open: true
+    ports: 
+      - 3000:3000
