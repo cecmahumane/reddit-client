@@ -11,12 +11,15 @@ function Body(props) {
       <RedditFeed 
         title={postData.title}
         score={postData.score}
+        subredditNamePrefix={postData.subredditNamePrefix}
+        numComments={postData.numComments}
+        author={postData.author}
         />
     )
   })
     
   return (
-    <div>
+    <div className='body'>
         <h2>Body</h2>
         <div>
             <Trending />

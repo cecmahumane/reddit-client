@@ -40,7 +40,7 @@ function App() {
             author: result.data.author,
             url: result.data.url,
             subredditNamePrefix: result.data.subreddit_name_prefixed,
-            numComments: result.data.num_comments
+            numComments: nFormatter(result.data.num_comments, 1)
           }
         })
         setPopularPostsData(mappedData)
