@@ -26,11 +26,17 @@ function App() {
     return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
   }
 
+//   function htmlDecode(input) {
+//     let doc = new DOMParser().parseFromString(input, "text/html");
+//     return doc.documentElement.textContent;
+// }   
+
   useEffect(() => {
     console.log('logged');
     fetch('https://www.reddit.com/r/popular.json')
       .then(res => res.json())
       .then(data => {
+        // console.log(data)
         let mappedData = data.data.children.map((result) => {
           return {
             id: uuidv4(),
@@ -48,7 +54,7 @@ function App() {
       })
   }, [])
 
-// console.log(popularPostsData[0].thumbnail)
+// console.log(popularPostsData)
 
   return (
     <div className="App">

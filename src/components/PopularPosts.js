@@ -9,7 +9,7 @@ function PopularPosts
 () {
   return (
     <div>
-        <h3>PopularPosts</h3>
+        <h3 className='pp-header'>PopularPosts</h3>
         <div className='pp-box'>
           <div className='pp-hot-box'>
             <img className='pp-hot-image' src={Fire} alt=''/> 

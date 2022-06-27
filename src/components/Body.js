@@ -9,6 +9,7 @@ function Body(props) {
   const redditFeedItems = props.popularPostsData.map(postData => {
     return (
       <RedditFeed 
+        key={postData.id}
         title={postData.title}
         score={postData.score}
         subredditNamePrefix={postData.subredditNamePrefix}
