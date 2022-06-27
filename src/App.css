@@ -58,6 +58,7 @@ body {
 .pp-hot-box, .pp-region-box, .pp-new-box, .pp-top-box {
     display: flex;
     align-items: center;
+    gap: 8px;
 }
 
 .pp-hot-box, .pp-region-box {
@@ -70,18 +71,24 @@ body {
 .pp-hot-box {
     margin-left: 11px;
     margin-right: 8px;
+    color: #0079D3;
+    font-weight: bold;
 }
 
 .pp-region-box {
     margin-right: 18px;
+    color: #0079D3;
+    font-weight: bold;
 }
 
 .pp-new-box {
     margin-right: 20px;
+    color: grey;
 }
 
 .pp-top-box {
     margin-right: 20px;
+    color: grey;
 }
 
 .feed-item {
@@ -113,9 +120,9 @@ body {
     color: grey;
 }
 
-.feed-thumbnail {
-    /* margin: 30px; */
-}
+/* .feed-thumbnail {
+    
+} */
 
 .feed-item-content-info {
     font-size: 12px;
