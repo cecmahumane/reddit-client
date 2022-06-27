@@ -45,6 +45,45 @@ body {
     
 }
 
+.pp-box {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+    margin-bottom: 20px;
+    background-color: #FFFFFF;
+    border-radius: 4px;
+    height: 60px;
+}
+
+.pp-hot-box, .pp-region-box, .pp-new-box, .pp-top-box {
+    display: flex;
+    align-items: center;
+}
+
+.pp-hot-box, .pp-region-box {
+    background-color: rgba(217, 217, 217, 0.46); 
+    height: 32px;
+    border-radius: 28px;
+    padding: 0px 15px;
+}
+
+.pp-hot-box {
+    margin-left: 11px;
+    margin-right: 8px;
+}
+
+.pp-region-box {
+    margin-right: 18px;
+}
+
+.pp-new-box {
+    margin-right: 20px;
+}
+
+.pp-top-box {
+    margin-right: 20px;
+}
+
 .feed-item {
     display: flex;
     margin-bottom: 12px;
