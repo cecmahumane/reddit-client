@@ -62,6 +62,29 @@ body {
     width:100%;
     border-radius: 0px 4px 4px 0px;
     padding-left: 10px;
+    /* display: flex;  */
+    /* justify-content: space-between; */
+}
+
+.feed-subredditNamePrefix {
+    font-weight: bold;
+}
+
+.feed-author {
+    color: grey;
+}
+
+.feed-thumbnail {
+    /* margin: 30px; */
+}
+
+.feed-item-content-info {
+    font-size: 12px;
+}
+
+.feed-content-and-thumbnail {
+    display:flex;
+    justify-content: space-between;
 }
 
 .feed-item-content-comments {
@@ -69,13 +92,14 @@ body {
     align-items: center;
     color: grey;
     font-size: 12px;
+    font-weight: bold;
     gap: 8px;
 }
 
 .karma-score {
     margin: 4px 0px;
     font-size: 12px;
-    font-weight: bold;
+    font-weight:bold;
 }
 
 .arrowup {

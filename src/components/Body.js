@@ -14,13 +14,13 @@ function Body(props) {
         subredditNamePrefix={postData.subredditNamePrefix}
         numComments={postData.numComments}
         author={postData.author}
+        thumbnail={postData.thumbnail}
         />
     )
   })
     
   return (
     <div className='body'>
-        <h2>Body</h2>
         <div>
             <Trending />
             <PopularPosts />

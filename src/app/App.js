@@ -40,14 +40,15 @@ function App() {
             author: result.data.author,
             url: result.data.url,
             subredditNamePrefix: result.data.subreddit_name_prefixed,
-            numComments: nFormatter(result.data.num_comments, 1)
+            numComments: nFormatter(result.data.num_comments, 1),
+            thumbnail: result.data.thumbnail
           }
         })
         setPopularPostsData(mappedData)
       })
   }, [])
 
-// console.log(popularPostsData)
+// console.log(popularPostsData[0].thumbnail)
 
   return (
     <div className="App">
