@@ -4,18 +4,18 @@ import Icon_search from '../images/Icon_search.png'
 
 function Header() {
 
-    const [searchInput, setSearchInput] = useState('');
+    // const [searchInput, setSearchInput] = useState('');
 
   return (
     <div className='navbar'>
-        <img src={RedditLogo} className="logo"/>
+        <img src={RedditLogo} alt='' className="logo"/>
         <div className='search-and-logo'>
             <input
                 className='searchbar' 
                 type='search'
                 placeholder='Search'
                 />
-            <img src={Icon_search} className='searchIcon'/>
+            <img src={Icon_search} alt='' className='searchIcon'/>
         </div>
     </div>
   )

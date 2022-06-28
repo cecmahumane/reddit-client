@@ -9,6 +9,28 @@ function App() {
   
   const { data, error, isLoading, isSuccess, isError } = useGetRedditFeedDataQuery();
 
+  // console.log(data);
+
+  function dataConfirm(data) {
+    // console.log(data)   
+    let popularPostsData = data.data.children.map((result) => {
+      return {
+        id: uuidv4(),
+        title: result.data.title,
+        score: nFormatter(result.data.score, 1),
+        permalink: result.data.permalink,
+        author: result.data.author,
+        url: result.data.url,
+        subredditNamePrefix: result.data.subreddit_name_prefixed,
+        numComments: nFormatter(result.data.num_comments, 1),
+        thumbnail: result.data.thumbnail
+      }
+    })
+    return popularPostsData
+  }
+
+  // console.log(dataConfirm(data))
+
   function nFormatter(num, digits) {
     const lookup = [
       { value: 1, symbol: "" },
@@ -26,29 +48,13 @@ function App() {
     return item ? (num / item.value).toFixed(digits).replace(rx, "$1") + item.symbol : "0";
   }
 
-//   function htmlDecode(input) {
-//     let doc = new DOMParser().parseFromString(input, "text/html");
-//     return doc.documentElement.textContent;
-// }   
-
-        let popularPostsData = data.data.children.map((result) => {
-          return {
-            id: uuidv4(),
-            title: result.data.title,
-            score: nFormatter(result.data.score, 1),
-            permalink: result.data.permalink,
-            author: result.data.author,
-            url: result.data.url,
-            subredditNamePrefix: result.data.subreddit_name_prefixed,
-            numComments: nFormatter(result.data.num_comments, 1),
-            thumbnail: result.data.thumbnail
-          }
-        })
 
   return (
     <div className="App">
      <Header/>
-     <Body popularPostsData={popularPostsData}/>
+     {isLoading && 'Loading...'}
+     {isError && error.message}
+     {isSuccess && data && <Body popularPostsData={dataConfirm(data)}/>}
     </div>
   );
 }
