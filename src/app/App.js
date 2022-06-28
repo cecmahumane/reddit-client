@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import '../App.css';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import { v4 as uuidv4 } from 'uuid'
-
+import { useGetRedditFeedDataQuery } from './services/redditFeedData';
 
 function App() {
   
-  const [popularPostsData, setPopularPostsData] = useState([]) 
-  
+  const { data, error, isLoading, isSuccess, isError } = useGetRedditFeedDataQuery();
+
   function nFormatter(num, digits) {
     const lookup = [
       { value: 1, symbol: "" },
@@ -31,13 +31,7 @@ function App() {
 //     return doc.documentElement.textContent;
 // }   
 
-  useEffect(() => {
-    console.log('logged');
-    fetch('https://www.reddit.com/r/popular.json')
-      .then(res => res.json())
-      .then(data => {
-        // console.log(data)
-        let mappedData = data.data.children.map((result) => {
+        let popularPostsData = data.data.children.map((result) => {
           return {
             id: uuidv4(),
             title: result.data.title,
@@ -50,11 +44,6 @@ function App() {
             thumbnail: result.data.thumbnail
           }
         })
-        setPopularPostsData(mappedData)
-      })
-  }, [])
-
-// console.log(popularPostsData)
 
   return (
     <div className="App">

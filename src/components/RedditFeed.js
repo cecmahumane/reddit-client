@@ -5,7 +5,6 @@ import Chat from '../images/Chat.png'
 
 function RedditFeed(props) {
 
-
   return (
     <div className='feed-item'>
           <div className='feed-item-karma'>
