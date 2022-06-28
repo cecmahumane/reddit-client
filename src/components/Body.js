@@ -3,8 +3,28 @@ import RedditFeed from './RedditFeed'
 import PopularPosts from './PopularPosts'
 import Trending from './Trending'
 import SidePanel from './SidePanel'
+import { useGetRedditWorldNewsDataQuery } from '../app/services/redditWorldNewsData'
+import { v4 as uuidv4} from 'uuid'
 
 function Body(props) {
+
+  const { data, error, isLoading, isSuccess, isError } = useGetRedditWorldNewsDataQuery();
+
+  function dataConfirm(data) {
+    // console.log(data)
+    let trendingData = data.data.children.slice(0,4);
+    // console.log(trendingData)
+    let cardInfo = trendingData.map((data) => {
+      return {
+        key: uuidv4(),
+        title: data.data.title,
+        subredditNamePrefixed: data.data.subreddit_name_prefixed,
+        thumbnail: data.data.thumbnail
+      }
+    })
+    // console.log(cardInfo)
+    return cardInfo
+  }
 
   const redditFeedItems = props.popularPostsData.map(postData => {
     return (
@@ -23,7 +43,9 @@ function Body(props) {
   return (
     <div className='body'>
         <div>
-            <Trending />
+            {isLoading && 'Loading...'}
+            {isError && error.message}
+            {isSuccess && data && <Trending trendingData={dataConfirm(data)}/>}
             <PopularPosts />
             {redditFeedItems}
         </div>

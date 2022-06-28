@@ -29,7 +29,10 @@ function App() {
     return popularPostsData
   }
 
-  // console.log(dataConfirm(data))
+  function htmlDecode(input) {
+    let doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }  
 
   function nFormatter(num, digits) {
     const lookup = [

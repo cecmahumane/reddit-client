@@ -7,7 +7,7 @@ export const redditWorldNewsDataApi = createApi({
     }),
     endpoints: (builder) => ({
         getRedditWorldNewsData: builder.query({
-            query: () => '/r/worldnews.json',
+            query: () => '/r/sports.json',
         })
     })
 });

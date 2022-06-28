@@ -45,6 +45,26 @@ body {
     
 }
 
+.trending-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.trending-title {
+    font-size: 12px;
+}
+
+.card-box {
+    height: 178px;
+    width: 237px;
+    border-radius: 8px;
+    background-color: grey;
+}
+
+/* .card-thumbnail {
+    height: 178px;
+} */
+
 .pp-box {
     display: flex;
     align-items: center;

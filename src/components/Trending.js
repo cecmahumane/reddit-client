@@ -1,34 +1,27 @@
 import React from 'react'
 import Card from './Card'
-import { v4 as uuidv4 } from 'uuid'
-import { useGetRedditWorldNewsDataQuery } from '../app/services/redditWorldNewsData'
 
-function Trending() {
-  
-  const { data, error, isLoading, isSuccess, isError } = useGetRedditWorldNewsDataQuery();
- 
-  function dataConfirm(data) {
-    // console.log(data)
-    let trendingData = data.data.children.slice(0,4);
-    console.log(trendingData)
-    let cardInfo = trendingData.map((data) => {
-      return {
-        key: uuidv4(),
-        title: data.data.title,
-        subredditName: data.data.subreddit_name_prefixed
-      }
-    })
-    console.log(cardInfo)
-    return cardInfo
-  }
+function Trending(props) {
+
+
+  let cards = props.trendingData.map((result) => {
+    return (
+      <Card 
+        key={result.key}
+        title={result.title}
+        subredditNamePrefixed={result.subredditNamePrefixed}
+        thumbnail={result.thumbnail}
+      />
+    )
+  })
+  console.log(cards)
 
   return (
     <div>
-        <h3>Trending</h3>
-        {isLoading && 'Loading...'}
-        {isError && error.message}
-        {isSuccess && data && <Card cardInfo={dataConfirm(data)}/>}
-
+      <h3 className='trending-title'>Trending today</h3>
+      <div className='trending-box'>
+          {cards}
+      </div>
     </div>
   )
 }
