@@ -132,9 +132,21 @@ body {
     background-color: #FFFFFF;
     width:100%;
     border-radius: 0px 4px 4px 0px;
-    padding-left: 10px;
-    /* display: flex;  */
-    /* justify-content: space-between; */
+    padding-left: 10px; 
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr auto auto 1fr;
+}
+
+.feed-item-header {
+    background-color: #0079D3;
+    grid-column: 1/ -1;
+}
+
+.feed-item-title {
+    margin: 0;
+    background-color: aquamarine;
+    grid-column: 1 /2; 
 }
 
 .feed-subredditNamePrefix {
@@ -146,18 +158,26 @@ body {
 }
 
 .thumbnail {
-    height: 100px;    
-    width: 100px;
+    height: 100%;    
+    width: 100%;
     background-color: pink;
+    grid-column: 2 / span 1;
+    grid-row: 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .feed-item-content-info {
     font-size: 12px;
 }
 
-.feed-content-and-thumbnail {
-    display:flex;
-    justify-content: space-between;
+.feed-item-preview {
+    background-color:aqua; 
+    grid-column: 1 /2;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 
 .feed-item-content-comments {
@@ -167,6 +187,8 @@ body {
     font-size: 12px;
     font-weight: bold;
     gap: 8px;
+    background-color: bisque;
+    grid-column: 1 / -1;
 }
 
 .karma-score {
