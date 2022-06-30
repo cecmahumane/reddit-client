@@ -5,7 +5,7 @@ import Chat from '../images/Chat.png'
 
 function RedditFeed(props) {
 
-  console.log(props.thumbnail)
+  // console.log(props.created)
 
   return (
     <div className='feed-item'>
@@ -20,12 +20,12 @@ function RedditFeed(props) {
             </div>
             <h3 className='feed-item-title'>{props.title}</h3>
             <div className='thumbnail'>
-              {(props.thumbnail !== "default" && props.thumbnail !== "self" && props.thumbnail !== "nsfw") && <div className='feed-thumbnail' src={props.thumbnail}>
-              </div>}
-              
+              {/* {(props.thumbnail !== "default" && props.thumbnail !== "self" && props.thumbnail !== "nsfw") && <div className='feed-thumbnail' src={props.thumbnail}>
+              </div>} */}
+              <p>Thumbnail Placeholder</p>
             </div>
             <div className='feed-item-preview'>
-              
+              <img src={props.preview} alt=''/>
             </div>
             <div className='feed-item-content-comments'>
                 <img src={Chat} alt=''/>

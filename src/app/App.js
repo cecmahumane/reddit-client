@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Body from '../components/Body';
 import { v4 as uuidv4 } from 'uuid'
 import { useGetRedditFeedDataQuery } from './services/redditFeedData';
+import jsonata from 'jsonata'  
 
 function App() {
   
@@ -11,10 +12,17 @@ function App() {
 
   // console.log(data);
 
+  // function imageExists(expr, data) {
+  //   if (expr.evaluate(data)) {
+  //     return 
+  //   } 
+  // } 
+  
   function dataConfirm(data) {
-    // console.log(data)   
+    let imageConfirm = jsonata('data.preview.images[0].resolutions') 
     let popularPostsData = data.data.children.map((result) => {
-      return {
+      let resolutions = imageConfirm.evaluate(result)
+      let output = {
         id: uuidv4(),
         title: result.data.title,
         score: nFormatter(result.data.score, 1),
@@ -23,10 +31,23 @@ function App() {
         url: result.data.url,
         subredditNamePrefix: result.data.subreddit_name_prefixed,
         numComments: nFormatter(result.data.num_comments, 1),
-        thumbnail: result.data.thumbnail
+        thumbnail: result.data.thumbnail,
       }
+      if (resolutions) {
+        output.preview = htmlDecode(resolutions[0].url)
+      }
+      return output;
     })
     return popularPostsData
+  }
+
+  function createdDecoder() {
+    return Math.floor(new Date().getTime()/1000.0) //The getTime method returns the time in milliseconds.
+  }
+
+  function toDate(epoch) {
+    var myDate = new Date(epoch * 1000);
+    return myDate.toLocaleString();
   }
 
   function htmlDecode(input) {
@@ -61,5 +82,8 @@ function App() {
     </div>
   );
 }
+
+
+
 
 export default App;

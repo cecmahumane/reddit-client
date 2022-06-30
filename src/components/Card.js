@@ -14,8 +14,8 @@ function Card(props) {
     <div className='card-box'>
         {(props.thumbnail !== "default" && props.thumbnail !== "self" && props.thumbnail !== "nsfw") && <div className='card-thumbnail' src={props.thumbnail}>
                   </div>}    
-        <p>{trimTitle(props)}</p>
-        <p>{props.subredditNamePrefixed}</p>
+        <h4 className='card-title'>{trimTitle(props)}</h4>
+        <p className='card-subredditName'>{props.subredditNamePrefixed}</p>
     </div>
   )
 }

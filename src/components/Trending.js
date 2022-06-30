@@ -14,7 +14,7 @@ function Trending(props) {
       />
     )
   })
-  console.log(cards)
+  // console.log(cards)
 
   return (
     <div>

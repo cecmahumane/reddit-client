@@ -36,6 +36,8 @@ function Body(props) {
         numComments={postData.numComments}
         author={postData.author}
         thumbnail={postData.thumbnail}
+        preview={postData.preview}
+        // created={postData.created}
         />
     )
   })
@@ -46,10 +48,15 @@ function Body(props) {
             {isLoading && 'Loading...'}
             {isError && error.message}
             {isSuccess && data && <Trending trendingData={dataConfirm(data)}/>}
+        </div>
+        <h3 className='pp-header'>PopularPosts</h3>
+        <div className='pp-and-redditFeed'>
+          <div>
             <PopularPosts />
             {redditFeedItems}
+          </div>
+          <SidePanel />
         </div>
-        <SidePanel />
     </div>
   )
 }
