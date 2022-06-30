@@ -16,7 +16,7 @@ function RedditFeed(props) {
           </div>
           <div className='feed-item-content'>
             <div className='feed-item-header'>
-              <p className='feed-item-content-info'><span className='feed-subredditNamePrefix'>{props.subredditNamePrefix}</span> <span className='feed-author'>* Posted by u/{props.author}</span></p>
+              <p className='feed-item-content-info'><span className='feed-subredditNamePrefix'>{props.subredditNamePrefix}</span> <span className='feed-author'>* Posted by u/{props.author} {props.created} hours ago</span></p>
             </div>
             <h3 className='feed-item-title'>{props.title}</h3>
             <div className='thumbnail'>

@@ -37,7 +37,7 @@ function Body(props) {
         author={postData.author}
         thumbnail={postData.thumbnail}
         preview={postData.preview}
-        // created={postData.created}
+        created={postData.created}
         />
     )
   })

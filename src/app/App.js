@@ -9,14 +9,6 @@ import jsonata from 'jsonata'
 function App() {
   
   const { data, error, isLoading, isSuccess, isError } = useGetRedditFeedDataQuery();
-
-  // console.log(data);
-
-  // function imageExists(expr, data) {
-  //   if (expr.evaluate(data)) {
-  //     return 
-  //   } 
-  // } 
   
   function dataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions') 
@@ -32,6 +24,7 @@ function App() {
         subredditNamePrefix: result.data.subreddit_name_prefixed,
         numComments: nFormatter(result.data.num_comments, 1),
         thumbnail: result.data.thumbnail,
+        created: toTimeCreated(result.data.created)
       }
       if (resolutions) {
         output.preview = htmlDecode(resolutions[0].url)
@@ -41,15 +34,11 @@ function App() {
     return popularPostsData
   }
 
-  function createdDecoder() {
-    return Math.floor(new Date().getTime()/1000.0) //The getTime method returns the time in milliseconds.
+  function toTimeCreated(input) {
+    let currentDate = Date.now()
+    return Math.floor(((currentDate / 1000) - input)  / 60 / 60);
   }
-
-  function toDate(epoch) {
-    var myDate = new Date(epoch * 1000);
-    return myDate.toLocaleString();
-  }
-
+  
   function htmlDecode(input) {
     let doc = new DOMParser().parseFromString(input, "text/html");
     return doc.documentElement.textContent;
