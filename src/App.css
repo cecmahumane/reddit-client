@@ -59,8 +59,17 @@ body {
     height: 178px;
     width: 237px;
     border-radius: 8px;
-    background-color: grey;
+    /* background-color: grey; */
     position: relative;
+}
+
+.card-image-box {
+    height: 100%;
+    width: 100%;
+    background-size: 300px;
+    border-radius: 8px;
+    
+    
 }
 
 .card-title {
@@ -68,6 +77,7 @@ body {
     position: absolute;
     bottom: 20px;
     color: #FFFFFF;
+    line-height: 18px;
 }
 
 .card-subredditName {

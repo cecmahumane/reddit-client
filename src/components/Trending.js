@@ -11,6 +11,7 @@ function Trending(props) {
         title={result.title}
         subredditNamePrefixed={result.subredditNamePrefixed}
         thumbnail={result.thumbnail}
+        preview={result.preview}
       />
     )
   })

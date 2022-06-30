@@ -5,24 +5,30 @@ import Trending from './Trending'
 import SidePanel from './SidePanel'
 import { useGetRedditWorldNewsDataQuery } from '../app/services/redditWorldNewsData'
 import { v4 as uuidv4} from 'uuid'
+import jsonata from 'jsonata'
 
 function Body(props) {
 
   const { data, error, isLoading, isSuccess, isError } = useGetRedditWorldNewsDataQuery();
 
   function dataConfirm(data) {
-    // console.log(data)
+    let imageConfirm = jsonata('data.preview.images[0].resolutions')
     let trendingData = data.data.children.slice(0,4);
-    // console.log(trendingData)
     let cardInfo = trendingData.map((data) => {
-      return {
+      let resolutions = imageConfirm.evaluate(data)
+      let output = {
         key: uuidv4(),
         title: data.data.title,
         subredditNamePrefixed: data.data.subreddit_name_prefixed,
         thumbnail: data.data.thumbnail
       }
+      if (resolutions) {
+        output.preview = htmlDecode(resolutions[resolutions.length - 1].url);
+      }
+      console.log(output.preview)
+      return output
     })
-    // console.log(cardInfo)
+    
     return cardInfo
   }
 
@@ -41,7 +47,12 @@ function Body(props) {
         />
     )
   })
-    
+  
+  function htmlDecode(input) {
+    let doc = new DOMParser().parseFromString(input, "text/html");
+    return doc.documentElement.textContent;
+  }  
+
   return (
     <div className='body'>
         <div>
