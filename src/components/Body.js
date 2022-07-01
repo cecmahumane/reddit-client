@@ -11,7 +11,7 @@ function Body(props) {
 
   const { data, error, isLoading, isSuccess, isError } = useGetRedditWorldNewsDataQuery();
 
-  function dataConfirm(data) {
+  function trendingDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions')
     let trendingData = data.data.children.slice(0,4);
     let cardInfo = trendingData.map((data) => {
@@ -25,12 +25,34 @@ function Body(props) {
       if (resolutions) {
         output.preview = htmlDecode(resolutions[resolutions.length - 1].url);
       }
-      console.log(output.preview)
+      // console.log(output.preview)
       return output
     })
     
     return cardInfo
   }
+
+  function sidePanelDataConfirm(data) {
+    let imageConfirm = jsonata('data.preview.images[0].resolutions')
+    let sortedData = [...data.data.children].sort((a, b) => b.data.score - a.data.score)
+    let sidePanelData = sortedData.slice(0,5);
+    let sidePanelInfo = sidePanelData.map((data) => {
+      let resolutions = imageConfirm.evaluate(data)
+      let output = {
+        key: uuidv4(),
+        id: 1,
+        title: data.data.title, 
+      }
+      if (resolutions) {
+        output.preview = htmlDecode(resolutions[resolutions.length - 1].url);
+      }
+      return output
+    })
+    // console.log(sidePanelInfo)
+    return sidePanelInfo
+  }
+
+  
 
   const redditFeedItems = props.popularPostsData.map(postData => {
     return (
@@ -58,7 +80,7 @@ function Body(props) {
         <div>
             {isLoading && 'Loading...'}
             {isError && error.message}
-            {isSuccess && data && <Trending trendingData={dataConfirm(data)}/>}
+            {isSuccess && data && <Trending trendingData={trendingDataConfirm(data)}/>}
         </div>
         <h3 className='pp-header'>PopularPosts</h3>
         <div className='pp-redditFeed-sidePanel'>
@@ -66,7 +88,9 @@ function Body(props) {
             <PopularPosts />
             {redditFeedItems}
           </div>
-          <SidePanel />
+            {isLoading && 'Loading...'}
+            {isError && error.message}
+            {isSuccess && data && <SidePanel sidePanelData={sidePanelDataConfirm(data)}/>}
         </div>
     </div>
   )

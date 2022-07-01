@@ -161,14 +161,36 @@ body {
     background-color: #FFFFFF;
     width: 30%;
     height: 430px;
+    border-radius: 4px 4px 4px 4px;
 }
 
 .sidePanel-header {
     background-color: #F8F9FA;
+    height: 77px;
+    border-radius: 4px 4px 0px 0px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
 .sidePanel-title {
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: lighter;
     margin: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.side-panel-unit-title {
+    font-size: 12px;
+    padding: 5px 15px;
+}
+
+.side-panel-unit-hr {
+    background: #F8F9FA;
+    /* height: 5px; */
 }
 
 .feed-item-karma {

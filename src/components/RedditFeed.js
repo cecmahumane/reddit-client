@@ -5,7 +5,7 @@ import Chat from '../images/Chat.png'
 
 function RedditFeed(props) {
 
-  console.log(props.thumbnail)
+  // console.log(props.thumbnail)
 
   function thumbnailExists(props) {
     if (props.thumbnail) {

@@ -10,7 +10,7 @@ function App() {
   
   const { data, error, isLoading, isSuccess, isError } = useGetRedditFeedDataQuery();
   
-  function dataConfirm(data) {
+  function redditFeedDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions') 
     let popularPostsData = data.data.children.map((result) => {
       let resolutions = imageConfirm.evaluate(result)
@@ -18,9 +18,11 @@ function App() {
         id: uuidv4(),
         title: result.data.title,
         score: nFormatter(result.data.score, 1),
+        rawScore: result.data.score,
         permalink: result.data.permalink,
         author: result.data.author,
         url: result.data.url,
+        ups: result.data.ups,
         subredditNamePrefix: result.data.subreddit_name_prefixed,
         numComments: nFormatter(result.data.num_comments, 1),
         // thumbnail: result.data.thumbnail,
@@ -68,7 +70,7 @@ function App() {
      <Header/>
      {isLoading && 'Loading...'}
      {isError && error.message}
-     {isSuccess && data && <Body popularPostsData={dataConfirm(data)}/>}
+     {isSuccess && data && <Body popularPostsData={redditFeedDataConfirm(data)}/>}
     </div>
   );
 }

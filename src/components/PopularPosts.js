@@ -5,8 +5,7 @@ import CircleWavy from '../images/CircleWavy.png'
 import ChartBar from '../images/ChartBar.png'
 import ThreeDots from '../images/Three-dots.png'
 
-function PopularPosts
-() {
+function PopularPosts() {
   return (
     <div>
         <div className='pp-box'>
