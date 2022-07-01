@@ -61,8 +61,8 @@ function Body(props) {
             {isSuccess && data && <Trending trendingData={dataConfirm(data)}/>}
         </div>
         <h3 className='pp-header'>PopularPosts</h3>
-        <div className='pp-and-redditFeed'>
-          <div>
+        <div className='pp-redditFeed-sidePanel'>
+          <div className='pp-and-redditFeed'>
             <PopularPosts />
             {redditFeedItems}
           </div>

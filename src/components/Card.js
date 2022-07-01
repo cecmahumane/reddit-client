@@ -14,7 +14,7 @@ function Card(props) {
     backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
     url(${props.preview})`
   }
-  console.log(props.preview)
+  // console.log(props.preview)
   return (
     <div className='card-box'>
         <div className='card-image-box' style={images}>

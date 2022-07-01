@@ -23,11 +23,12 @@ function App() {
         url: result.data.url,
         subredditNamePrefix: result.data.subreddit_name_prefixed,
         numComments: nFormatter(result.data.num_comments, 1),
-        thumbnail: result.data.thumbnail,
+        // thumbnail: result.data.thumbnail,
         created: toTimeCreated(result.data.created)
       }
       if (resolutions) {
-        output.preview = htmlDecode(resolutions[0].url)
+        output.preview = htmlDecode(resolutions[resolutions.length - 1].url)
+        output.thumbnail = htmlDecode(resolutions[0].url)
       }
       return output;
     })

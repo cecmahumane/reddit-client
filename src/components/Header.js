@@ -13,7 +13,7 @@ function Header() {
             <input
                 className='searchbar' 
                 type='search'
-                placeholder='Search'
+                placeholder='Search Reddit'
                 />
             <img src={Icon_search} alt='' className='searchIcon'/>
         </div>

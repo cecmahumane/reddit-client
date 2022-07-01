@@ -5,7 +5,19 @@ import Chat from '../images/Chat.png'
 
 function RedditFeed(props) {
 
-  // console.log(props.created)
+  console.log(props.thumbnail)
+
+  function thumbnailExists(props) {
+    if (props.thumbnail) {
+      return  <img src={props.thumbnail} alt=''/>
+    }
+  }
+
+  function previewExists(props) {
+    if (props.thumbnail === false) {
+      return <img className='feed-item-preview-image' src={props.preview} alt=''/>;
+    }
+  }
 
   return (
     <div className='feed-item'>
@@ -20,12 +32,11 @@ function RedditFeed(props) {
             </div>
             <h3 className='feed-item-title'>{props.title}</h3>
             <div className='thumbnail'>
-              {/* {(props.thumbnail !== "default" && props.thumbnail !== "self" && props.thumbnail !== "nsfw") && <div className='feed-thumbnail' src={props.thumbnail}>
-              </div>} */}
-              <p>Thumbnail Placeholder</p>
+              {thumbnailExists(props)}
+              {/* <p>Thumbnail Placeholder</p> */}
             </div>
-            <div className='feed-item-preview'>
-              <img src={props.preview} alt=''/>
+            <div className='feed-item-preview' >
+              {previewExists(props)}
             </div>
             <div className='feed-item-content-comments'>
                 <img src={Chat} alt=''/>
