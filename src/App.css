@@ -136,6 +136,10 @@ body {
     font-weight: bold;
 }
 
+.pp-hot-box:hover {
+    background-color: rgb(212, 212, 212);
+}
+
 .pp-region-box {
     margin-right: 18px;
     color: #0079D3;
@@ -145,11 +149,27 @@ body {
 .pp-new-box {
     margin-right: 20px;
     color: grey;
+    padding: 0px 15px;
+    height: 32px;
+}
+
+.pp-new-box:hover {
+    background-color: rgba(217, 217, 217, 0.46);
+    border-radius: 28px;
+    height: 32px;
+    padding: 0px 15px;
 }
 
 .pp-top-box {
     margin-right: 20px;
     color: grey;
+    height: 32px;
+    padding: 0px 15px;
+}
+
+.pp-top-box:hover {
+    background-color: rgba(217, 217, 217, 0.46);
+    border-radius: 28px;
 }
 
 .feed-item {
