@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import RedditLogo from '../images/RedditLogo.png'
-import Icon_search from '../images/Icon_search.png' 
+import Icon_search from '../images/GreySearchIcon.png' 
 
 function Header() {
 

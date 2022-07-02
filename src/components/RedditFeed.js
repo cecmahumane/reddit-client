@@ -2,6 +2,8 @@ import React from 'react'
 import ArrowUp from '../images/Arrow-up.png'
 import ArrowDown from '../images/Arrow-down.png'
 import Chat from '../images/Chat.png'
+import OrangeArrowUp from '../images/OrangeArrowUp.png'
+import BlueArrowDown from '../images/BlueArrowDown.png'
 
 function RedditFeed(props) {
 
@@ -22,9 +24,9 @@ function RedditFeed(props) {
   return (
     <div className='feed-item'>
           <div className='feed-item-karma'>
-            <img src={ArrowUp} alt='' className='arrowup'/>
+            <img src={ArrowUp} onMouseOver={e => (e.currentTarget.src=OrangeArrowUp)} onMouseOut={e => (e.currentTarget.src=ArrowUp)} alt='' className='arrowup'/>
             <p className='karma-score'>{props.score}</p>
-            <img src={ArrowDown} alt='' className='arrowdown'/>
+            <img src={ArrowDown} onMouseOver={e => (e.currentTarget.src=BlueArrowDown)} onMouseOut={e => (e.currentTarget.src=ArrowDown)} alt='' className='arrowdown'/>
           </div>
           <div className='feed-item-content'>
             <div className='feed-item-header'>
