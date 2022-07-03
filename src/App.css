@@ -250,13 +250,14 @@ body {
 }
 
 .feed-item-header {
-    background-color: #0079D3;
+    /* background-color: #0079D3; */
     grid-column: 1/ -1;
+    border-radius: 0px 4px 0px 0px;
 }
 
 .feed-item-title {
     margin: 0;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     grid-column: 1 /2; 
 }
 
@@ -271,7 +272,7 @@ body {
 .thumbnail {
     height: 100%;    
     width: 100%;
-    background-color: pink;
+    /* background-color: pink; */
     grid-column: 2 / span 1;
     grid-row: 2 / 4;
     display: flex;
@@ -289,7 +290,7 @@ body {
 }
 
 .feed-item-preview {
-    background-color:aqua; 
+    /* background-color:aqua;  */
     grid-column: 1 /2;
     display: flex;
     justify-content: center;
@@ -310,8 +311,9 @@ body {
     font-size: 12px;
     font-weight: bold;
     gap: 8px;
-    background-color: bisque;
+    /* background-color: bisque; */
     grid-column: 1 / -1;
+    border-radius: 0px 0px 4px 0px;
 }
 
 .karma-score {

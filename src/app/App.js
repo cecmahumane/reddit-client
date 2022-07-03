@@ -15,8 +15,10 @@ function App() {
 
   function redditFeedDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions') 
+    let thumbnailConfirm = jsonata('data.thumbnail')
     let popularPostsData = data.data.children.map((result) => {
       let resolutions = imageConfirm.evaluate(result)
+      let evaluateThumbnail = thumbnailConfirm.evaluate(result)
       let output = {
         id: uuidv4(),
         title: result.data.title,
@@ -33,7 +35,10 @@ function App() {
       }
       if (resolutions) {
         output.preview = htmlDecode(resolutions[resolutions.length - 1].url)
-        output.thumbnail = htmlDecode(resolutions[0].url)
+       
+      }
+      if (evaluateThumbnail) {
+        output.thumbnail = htmlDecode(evaluateThumbnail)
       }
       return output;
     })
@@ -42,12 +47,14 @@ function App() {
 
   function newTrendingDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions')
+    let thumbnailConfirm = jsonata('data.thumbnail')
     let sortedData = [...data.data.children].sort((a, b) => {
       return a.data.created - b.data.created
     })
     let reverseSortedData = sortedData.reverse()
     let popularPostsData = reverseSortedData.map((result) => {
       let resolutions = imageConfirm.evaluate(result)
+      let evaluateThumbnail = thumbnailConfirm.evaluate(result)
       let output = {
         id: uuidv4(),
         title: result.data.title,
@@ -65,6 +72,9 @@ function App() {
       if (resolutions) {
         output.preview = htmlDecode(resolutions[resolutions.length - 1].url)
         output.thumbnail = htmlDecode(resolutions[0].url)
+      }
+      if (evaluateThumbnail) {
+        output.thumbnail = htmlDecode(evaluateThumbnail)
       }
       return output
     })
@@ -73,11 +83,13 @@ function App() {
 
   function topTrendingDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions')
+    let thumbnailConfirm = jsonata('data.thumbnail')
     let sortedData = [...data.data.children].sort((a, b) => {
       return b.data.score - a.data.score
     })
     let popularPostsData = sortedData.map((result) => {
       let resolutions = imageConfirm.evaluate(result)
+      let evaluateThumbnail = thumbnailConfirm.evaluate(result)
       let output = {
         id: uuidv4(),
         title: result.data.title,
@@ -96,6 +108,9 @@ function App() {
         output.preview = htmlDecode(resolutions[resolutions.length - 1].url)
         output.thumbnail = htmlDecode(resolutions[0].url)
       }
+      if (evaluateThumbnail) {
+        output.thumbnail = htmlDecode(evaluateThumbnail)
+      }
       return output
     })
     return popularPostsData
@@ -103,11 +118,13 @@ function App() {
 
   function hotTrendingDataConfirm(data) {
     let imageConfirm = jsonata('data.preview.images[0].resolutions')
+    let thumbnailConfirm = jsonata('data.thumbnail')
     let sortedData = [...data.data.children].sort((a, b) => {
       return (b.data.ups / b.data.created) - (a.data.ups / a.data.created)
     })
     let popularPostsData = sortedData.map((result) => {
       let resolutions = imageConfirm.evaluate(result)
+      let evaluateThumbnail = thumbnailConfirm.evaluate(result)
       let output = {
         id: uuidv4(),
         title: result.data.title,
@@ -125,6 +142,9 @@ function App() {
       if (resolutions) {
         output.preview = htmlDecode(resolutions[resolutions.length - 1].url)
         output.thumbnail = htmlDecode(resolutions[0].url)
+      }
+      if (evaluateThumbnail) {
+        output.thumbnail = htmlDecode(evaluateThumbnail)
       }
       return output
     })

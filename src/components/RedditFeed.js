@@ -16,11 +16,11 @@ function RedditFeed(props) {
   }
 
   function previewExists(props) {
-    if (props.thumbnail === false) {
+    if (props.thumbnail === 'default' || props.thumbnail === 'self' || props.thumbnail === 'nsfw') {
       return <img className='feed-item-preview-image' src={props.preview} alt=''/>;
     }
   }
-
+  console.log(props.thumbnail)
   return (
     <div className='feed-item'>
           <div className='feed-item-karma'>
@@ -38,7 +38,7 @@ function RedditFeed(props) {
               {/* <p>Thumbnail Placeholder</p> */}
             </div>
             <div className='feed-item-preview' >
-              {previewExists(props)}
+            {previewExists(props)}
             </div>
             <div className='feed-item-content-comments'>
                 <img src={Chat} alt=''/>
