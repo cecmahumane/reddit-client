@@ -36,3 +36,26 @@ Project Requirements:
 []Users are able to leave an error state
 
 []OPTIONAL: Get a custom domain name and use it for your application
+
+
+======================================================================
+
+
+
+To Do  ==> Reddit Clone
+
+1) [x]Preview images routing.
+2) [x]Thumbnail not appearing.
+3) [~]Conditionally render thumbnail when no preview available
+3) []Hot button ---> order of upvotes / time since created
+4) []New button ---> In order of time created
+5) [~]Upvote and downvote buttons ---> change color when pressed. Only 1 can be pressed at a time
+	and can be unpressed.Add hover state for color change
+6) []Top button ---> descending order of karma points
+7) [x]Hours since created
+8) [x]Render Trending today card images
+9) []Searchbar functionality
+10) [x]Implement top 5 stories to side panel
+11) [x]Fix sidepanel dimensions
+12) [] Enunmerate sidepanel articles
+13 [x] Add hover state to new and top buttons

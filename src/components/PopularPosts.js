@@ -5,11 +5,11 @@ import CircleWavy from '../images/CircleWavy.png'
 import ChartBar from '../images/ChartBar.png'
 import ThreeDots from '../images/Three-dots.png'
 
-function PopularPosts() {
+function PopularPosts(props) {
   return (
     <div>
         <div className='pp-box'>
-          <div className='pp-hot-box'>
+          <div className='pp-hot-box' onClick={() => props.toggleHotButton()}>
             <img className='pp-hot-image' src={Fire} alt=''/> 
             <p>Hot</p>
           </div>
@@ -17,11 +17,11 @@ function PopularPosts() {
             <p>Canada</p>
             <img className='pp-region-arrow' src={CaretDown} alt=''/>
           </div>
-          <div className='pp-new-box'>
+          <div className='pp-new-box' onClick={() => props.toggleNewButton()}>
             <img className='pp-new-star' src={CircleWavy} alt=''/>
             <p>New</p>
           </div>
-          <div className='pp-top-box'>
+          <div className='pp-top-box' onClick={() => props.toggleTopButton()}>
             <img className='pp-top-graph' src={ChartBar} alt=''/>
             <p>Top</p>
           </div>

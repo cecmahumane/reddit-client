@@ -140,6 +140,10 @@ body {
     background-color: rgb(212, 212, 212);
 }
 
+.pp-hot-box:active {
+    background-color: rgb(173, 173, 173);
+}
+
 .pp-region-box {
     margin-right: 18px;
     color: #0079D3;
@@ -160,6 +164,10 @@ body {
     padding: 0px 15px;
 }
 
+.pp-new-box:active {
+    background-color: rgb(173, 173, 173);
+}
+
 .pp-top-box {
     margin-right: 20px;
     color: grey;
@@ -170,6 +178,10 @@ body {
 .pp-top-box:hover {
     background-color: rgba(217, 217, 217, 0.46);
     border-radius: 28px;
+}
+
+.pp-top-box:active {
+    background-color: rgb(173, 173, 173);
 }
 
 .feed-item {

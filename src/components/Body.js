@@ -85,7 +85,10 @@ function Body(props) {
         <h3 className='pp-header'>PopularPosts</h3>
         <div className='pp-redditFeed-sidePanel'>
           <div className='pp-and-redditFeed'>
-            <PopularPosts />
+            <PopularPosts toggleHotButton={props.toggleHotButton}
+                          toggleNewButton={props.toggleNewButton}
+                          toggleTopButton={props.toggleTopButton}
+            />
             {redditFeedItems}
           </div>
             {isLoading && 'Loading...'}
