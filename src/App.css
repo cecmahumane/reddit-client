@@ -222,14 +222,22 @@ body {
     left: 10px;
 }
 
+.side-panel-unit-info {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding-left: 10px;
+}
+
 .side-panel-unit-title {
     font-size: 12px;
     padding: 5px 15px;
+    margin: 0px;
 }
 
 .side-panel-unit-hr {
     background: #F8F9FA;
-    /* height: 5px; */
+    margin: 0px;
 }
 
 .feed-item-karma {
@@ -274,7 +282,7 @@ body {
 .thumbnail {
     /* height: 100px;    
     width: 144px; */
-    background-color: pink;
+    /* background-color: pink; */
     grid-column: 2 / span 1;
     grid-row: 2 / 4;
     display: flex;
@@ -282,15 +290,6 @@ body {
     align-items: center;
     /* border: 1px solid #0079D3 */
 }
-
-/* .feed-thumbnail {
-    height: 100px;
-    width: 140px;
-    object-fit: cover ;
-    border: 1px solid #0079D3;
-    border-radius: 4px;
-    margin-right: 8px;
-} */
 
 .feed-item-content-info {
     font-size: 12px;

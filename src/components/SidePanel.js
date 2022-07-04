@@ -3,9 +3,10 @@ import SidePanelUnits from './SidePanelUnits'
 
 function SidePanel(props) {
 
-  let sidePanelItems = props.sidePanelData.map((result) => {
+  let sidePanelItems = props.sidePanelData.map((result, index) => {
     return (
       <SidePanelUnits 
+        rank={index + 1}
         title={result.title}
         key={result.key}
         id={result.id}

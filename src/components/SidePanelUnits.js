@@ -12,8 +12,11 @@ function SidePanelUnits(props) {
 
   return (
     <div>
+      <div className='side-panel-unit-info'>
+        <p>{props.rank}</p>
         <p className='side-panel-unit-title'>{trimTitle(props)}</p>
-        <hr className='side-panel-unit-hr'/>
+      </div>
+      <hr className='side-panel-unit-hr'/>
     </div>
   )
 }

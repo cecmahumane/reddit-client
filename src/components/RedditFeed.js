@@ -10,12 +10,12 @@ function RedditFeed(props) {
   // console.log(props.thumbnail)
 
   function thumbnailExists(props) {
-    if (props.thumbnail !== 'default' || props.thumbnail !== 'self' || props.thumbnail !== 'nsfw') {
+    if (props.thumbnail !== 'default' && props.thumbnail !== 'self' && props.thumbnail !== 'nsfw') {
       return  <div style={{
         height: "100px",
         width: "140px",
-        // objectFit: "cover",
-        // border: "1px solid #0079D3",
+        objectFit: "cover",
+        border: "1px solid #0079D3",
         borderRadius: '4px',
         marginRight: '8px',
         backgroundImage: `url(${props.thumbnail})`,
@@ -28,7 +28,7 @@ function RedditFeed(props) {
       return <img className='feed-item-preview-image' src={props.preview} alt=''/>;
     }
   }
-  console.log(props.thumbnail)
+  // console.log(props.thumbnail)
   return (
     <div className='feed-item'>
           <div className='feed-item-karma'>
