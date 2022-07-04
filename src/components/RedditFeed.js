@@ -10,8 +10,16 @@ function RedditFeed(props) {
   // console.log(props.thumbnail)
 
   function thumbnailExists(props) {
-    if (props.thumbnail) {
-      return  <img src={props.thumbnail} alt=''/>
+    if (props.thumbnail !== 'default' || props.thumbnail !== 'self' || props.thumbnail !== 'nsfw') {
+      return  <div style={{
+        height: "100px",
+        width: "140px",
+        // objectFit: "cover",
+        // border: "1px solid #0079D3",
+        borderRadius: '4px',
+        marginRight: '8px',
+        backgroundImage: `url(${props.thumbnail})`,
+      }} className='feed-thumbnail' alt=''div></div>
     }
   }
 
@@ -32,13 +40,12 @@ function RedditFeed(props) {
             <div className='feed-item-header'>
               <p className='feed-item-content-info'><span className='feed-subredditNamePrefix'>{props.subredditNamePrefix}</span> <span className='feed-author'>* Posted by u/{props.author} {props.created} hours ago</span></p>
             </div>
-            <h3 className='feed-item-title'>{props.title}</h3>
+            <h4 className='feed-item-title'>{props.title}</h4>
             <div className='thumbnail'>
               {thumbnailExists(props)}
-              {/* <p>Thumbnail Placeholder</p> */}
             </div>
             <div className='feed-item-preview' >
-            {previewExists(props)}
+              {previewExists(props)}
             </div>
             <div className='feed-item-content-comments'>
                 <img src={Chat} alt=''/>

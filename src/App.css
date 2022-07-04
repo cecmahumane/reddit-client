@@ -258,6 +258,8 @@ body {
 .feed-item-title {
     margin: 0;
     /* background-color: aquamarine; */
+    margin-bottom: 8px;
+    line-height: 20px;
     grid-column: 1 /2; 
 }
 
@@ -270,20 +272,25 @@ body {
 }
 
 .thumbnail {
-    height: 100%;    
-    width: 100%;
-    /* background-color: pink; */
+    /* height: 100px;    
+    width: 144px; */
+    background-color: pink;
     grid-column: 2 / span 1;
     grid-row: 2 / 4;
     display: flex;
     justify-content:center ;
     align-items: center;
+    /* border: 1px solid #0079D3 */
 }
 
-.feed-thumbnail {
+/* .feed-thumbnail {
     height: 100px;
-    width: 100px;
-}
+    width: 140px;
+    object-fit: cover ;
+    border: 1px solid #0079D3;
+    border-radius: 4px;
+    margin-right: 8px;
+} */
 
 .feed-item-content-info {
     font-size: 12px;
