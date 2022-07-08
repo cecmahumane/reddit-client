@@ -64,7 +64,7 @@ of the content dynamic and consistent. This was also my first time using the Red
     display: grid;
     grid-template-columns: 4fr 1fr;
     grid-template-rows: 1fr auto auto 1fr;
-
+}
 ```
 ```js
 
@@ -89,7 +89,6 @@ export const { useGetRedditFeedDataQuery } = redditFeedDataApi;
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 In the future I would like to do more work integrating CSS grid into my projects as I am much more comfortable using flexbox than grid. 
 
 If I learned how to use the official Reddit Api I would like to add subreddit Icons as well as a functioning search bar. I chose to not implement the search bar in the reddit clones current state due to it having limited functionality.
