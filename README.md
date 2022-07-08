@@ -102,7 +102,7 @@ If I learned how to use the official Reddit Api I would like to add subreddit Ic
 
 ## Author
 
-- Website - Cecil Mahumane (https://github.com/cecmahumane/reddit-client)
+- Website - [Cecil Mahumane](https://github.com/cecmahumane)
 
 
 ## Acknowledgments
