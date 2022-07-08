@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Codecademy - Reddit Client solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Build your own Reddit App Challenge on Codecademy](https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-22-portfolio-project-reddit-client/modules/wdcp-22-reddit-client/kanban_projects/reddit-client).
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Overview
 
-### `npm test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `npm run build`
+- Browse a Reddit - like UI for the latest popular stories
+- See hover and focus states for interactive elements
+- Sort the popular posts in the reddit feed by using the Hot, New and Top buttons. 
+-
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](./reddit-clone-screenshot.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Links
 
-### `npm run eject`
+- Solution URL: [https://github.com/cecmahumane/reddit-client]
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## My process
+	
+### Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- HTML5
+- CSS
+- Flexbox
+- CSS Grid
+- [React](https://reactjs.org/) - JS library
+- [Redux Toolkit](https://redux-toolkit.js.org/) - For state management
+- [jsonata](https://jsonata.org/) - JSON query and transformation language
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### What I learned
 
-## Learn More
+This was the first time I had implemented CSS grid in a project. I used it on the reddit feed items to make the organization 
+of the content dynamic and consistent. This was also my first time using the Redux Toolkit Query. I'm happy I got it to work. 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```css
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+.feed-item-content {
+    background-color: #FFFFFF;
+    width:100%;
+    border-radius: 0px 4px 4px 0px;
+    padding-left: 10px; 
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr auto auto 1fr;
 
-### Code Splitting
+```
+```js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-### Analyzing the Bundle Size
+export const redditFeedDataApi = createApi({
+    reducerPath: 'redditFeedData',
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://www.reddit.com',
+    }),
+    endpoints: (builder) => ({
+        getRedditFeedData: builder.query({
+            query: () => '/r/popular.json',
+        })
+    })
+});
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+export const { useGetRedditFeedDataQuery } = redditFeedDataApi;
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+### Continued development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In the future I would like to do more work integrating CSS grid into my projects as I am much more comfortable using flexbox than grid. 
 
-### Deployment
+If I learned how to use the official Reddit Api I would like to add subreddit Icons as well as a functioning search bar. I chose to not implement the search bar in the reddit clones current state due to it having limited functionality.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+### Useful resources
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [RTK Query Tutorial - Hong Ly](https://www.youtube.com/watch?v=9V-Up8QT7tM&t=903s) - This helped me see first hand how the query was applied. It helped clarify details I found confusing after reading the RTK Query documentation.
+- [RTK Query Tutorial - Dave Gray](https://www.youtube.com/watch?v=HyZzCHgG3AY) - This a great compliment to the above video. I'd recommend it to anyone still learning this concept.
+
+
+## Author
+
+- Website - Cecil Mahumane (https://github.com/cecmahumane/reddit-client)
+
+
+## Acknowledgments
+
+Special thanks to Frank Davies for providing code reviews and helping me resolve some stumbling blocks, and special thanks to @MikeJ on the Codecademy discord for providing me with advice and troubleshooting with RTK Query. 
+
+
