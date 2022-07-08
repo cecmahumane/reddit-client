@@ -27,7 +27,6 @@ Users should be able to:
 - Browse a Reddit - like UI for the latest popular stories
 - See hover and focus states for interactive elements
 - Sort the popular posts in the reddit feed by using the Hot, New and Top buttons. 
--
 
 ### Screenshot
 
