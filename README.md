@@ -24,9 +24,9 @@ This is a solution to the [Build your own Reddit App Challenge on Codecademy](ht
 
 Users should be able to:
 
-- Browse a Reddit - like UI for the latest popular stories
-- See hover and focus states for interactive elements
-- Sort the popular posts in the reddit feed by using the Hot, New and Top buttons. 
+- Browse a Reddit-like UI for the latest popular stories.
+- See hover and focus states for interactive elements.
+- Sort the popular posts in the Reddit feed by using the Hot, New and Top buttons. 
 
 ### Screenshot
 
@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/cecmahumane/reddit-client]
+- Solution URL: [https://reddit-client.cecilmahumane.com]
 
 ## My process
 	
@@ -52,7 +52,7 @@ Users should be able to:
 ### What I learned
 
 This was the first time I had implemented CSS grid in a project. I used it on the reddit feed items to make the organization 
-of the content dynamic and consistent. This was also my first time using the Redux Toolkit Query. I'm happy I got it to work. 
+of the content dynamic and consistent. 
 
 ```css
 
@@ -66,6 +66,9 @@ of the content dynamic and consistent. This was also my first time using the Red
     grid-template-rows: 1fr auto auto 1fr;
 }
 ```
+
+This was also my first time using the Redux Toolkit Query. I'm happy I got it to work.
+
 ```js
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
@@ -89,9 +92,9 @@ export const { useGetRedditFeedDataQuery } = redditFeedDataApi;
 
 ### Continued development
 
-In the future I would like to do more work integrating CSS grid into my projects as I am much more comfortable using flexbox than grid. 
+In the future I would like to do more work integrating CSS grid into my projects as I am, so far, much more comfortable using flexbox than grid. 
 
-If I learned how to use the official Reddit Api I would like to add subreddit Icons as well as a functioning search bar. I chose to not implement the search bar in the reddit clones current state due to it having limited functionality.
+If I learned how to use the official Reddit API I would like to add subreddit icons as well as a functioning search bar. I chose to not implement the search bar in the reddit clone's current state due to it having limited functionality.
 
 
 ### Useful resources
@@ -102,7 +105,7 @@ If I learned how to use the official Reddit Api I would like to add subreddit Ic
 
 ## Author
 
-- Website - [Cecil Mahumane](https://github.com/cecmahumane)
+- Website - [Cecil Mahumane](https://home.cecilmahumane.com)
 
 
 ## Acknowledgments
